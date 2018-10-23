@@ -42,6 +42,8 @@ public class NewCode {
                     generatedNumber = (int) (Math.random() * 3);
                     System.out.println(option[generatedNumber]);
 
+                    System.out.println("\nThe limit is:"+limit);
+
                     if (playerComputer == evenScore){
                         System.out.println("I win!!!");
                         game = false;
@@ -125,14 +127,18 @@ public class NewCode {
                     /////
                     else if (userAnswer.equals(option[generatedNumber])) {
                         System.out.println("It's a tie!!!");
-                        limit--;
+                        limit --;
                     }
                     System.out.println("\nThe score is...\nComputer: " + playerComputer + " User: " + playerUser+ "\n");
                 }
                 oddScore+=2;
                 evenScore+=2;
             }
-            System.out.println("Want to play again?");
+            System.out.println("Want to play again?\nEnter \"yes\" or \"no\"");
+            userAnswer = user.nextLine();
+            if (userAnswer.equals("no")){
+                System.out.println("GAME OVER!\nGOODBYE!");
+            }
             System.out.println("Best " + evenScore + " out of " + oddScore);
         }
     }
