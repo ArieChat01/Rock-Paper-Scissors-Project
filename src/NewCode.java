@@ -23,39 +23,20 @@ public class NewCode {
         String[] option = {cowOption, bombOption, lakeOption};
         game = true;
         playAgain = true;
-        int limit;
-        limit = 0;
 
         System.out.println("Okay, let's play cow, lake, bomb");
         System.out.println("Okay, are you ready?");
         System.out.println("Enter cow, lake or bomb.");
         System.out.println("Best " + evenScore + " out of " + oddScore);
 
-        while (playAgain){
+        while (playAgain) {
 
             while (game) {
 
                 for (int i = 0; i < option.length; i++) {
-                    if(limit == oddScore);
-                    game = false;
 
                     generatedNumber = (int) (Math.random() * 3);
                     System.out.println(option[generatedNumber]);
-
-                    System.out.println("\nThe limit is:"+limit);
-
-                    if (playerComputer == evenScore){
-                        System.out.println("I win!!!");
-                        game = false;
-                        playAgain = false;
-                        break;
-                    }
-                    else if (playerUser == evenScore){
-                        System.out.println("My systems must be malfunctioning. It seems you have won.");
-                        game = false;
-                        playAgain = false;
-                        break;
-                    }
 
                     userAnswer = user.nextLine();
                     if (userAnswer.equals(cowOption) && option[generatedNumber].equals(bombOption)) {
@@ -72,7 +53,6 @@ public class NewCode {
                                 "          | ;  :|     \n" +
                                 " _____.,-#%&$@%#&#~,._____");
                         playerComputer++;
-                        limit++;
                     } else if (userAnswer.equals(cowOption) && option[generatedNumber].equals(lakeOption)) {
                         System.out.println("Your cow drank my lake! >:-(");
                         System.out.println(" __n__n__\n" +
@@ -82,16 +62,23 @@ public class NewCode {
                                 "     |//YY \\|/\n" +
                                 "snd  |||   |||");
                         playerUser++;
-                        limit++;
                     }
                     /////
                     else if (userAnswer.equals(bombOption) && option[generatedNumber].equals(lakeOption)) {
                         System.out.println("Your bomb has been extinguished.:-p");
-                        System.out.println("");
+                        System.out.println(" _    _    _    _    _    _    _    _    _    _    _\n" +
+                                " \\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\n" +
+                                " \"    \"    \"    \"    \"    \"    \"    \"    \"    \"    \"\n" +
+                                "\n" +
+                                " _    _    _    _    _    _    _    _    _    _    _\n" +
+                                " \\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\n" +
+                                " \"    \"    \"    \"    \"    \"    \"    \"    \"    \"    \"\n" +
+                                "\n" +
+                                " _    _    _    _    _    _    _    _    _    _    _\n" +
+                                " \\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\n" +
+                                " \"    \"    \"    \"    \"    \"    \"    \"    \"    \"    \"\n");
                         playerComputer++;
-                        limit++;
-                    }
-                    else if (userAnswer.equals(bombOption) && option[generatedNumber].equals(cowOption)) {
+                    } else if (userAnswer.equals(bombOption) && option[generatedNumber].equals(cowOption)) {
                         System.out.println("You blew up my cow. >:-(");
                         System.out.println(" _.-^^---....,,--       \n" +
                                 " _--                  --_  \n" +
@@ -105,7 +92,6 @@ public class NewCode {
                                 "          | ;  :|     \n" +
                                 " _____.,-#%&$@%#&#~,._____");
                         playerUser++;
-                        limit++;
                     }
                     /////
                     else if (userAnswer.equals(lakeOption) && option[generatedNumber].equals(cowOption)) {
@@ -117,31 +103,54 @@ public class NewCode {
                                 "     |//YY \\|/\n" +
                                 "     |||   |||");
                         playerComputer++;
-                        limit++;
-                    }
-                    else if (userAnswer.equals(lakeOption) && option[generatedNumber].equals(bombOption)) {
+                    } else if (userAnswer.equals(lakeOption) && option[generatedNumber].equals(bombOption)) {
                         System.out.println("Your lake extinguished my bomb. >:-(");
+                        System.out.println(" _    _    _    _    _    _    _    _    _    _    _\n" +
+                                " \\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\n" +
+                                " \"    \"    \"    \"    \"    \"    \"    \"    \"    \"    \"\n" +
+                                "\n" +
+                                " _    _    _    _    _    _    _    _    _    _    _\n" +
+                                " \\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\n" +
+                                " \"    \"    \"    \"    \"    \"    \"    \"    \"    \"    \"\n" +
+                                "\n" +
+                                " _    _    _    _    _    _    _    _    _    _    _\n" +
+                                " \\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\\\"-._\n" +
+                                " \"    \"    \"    \"    \"    \"    \"    \"    \"    \"    \"\n");
                         playerUser++;
-                        limit++;
                     }
                     /////
                     else if (userAnswer.equals(option[generatedNumber])) {
-                        System.out.println("It's a tie!!!");
-                        limit --;
+                        System.out.println("Aha. It is a tie!");
                     }
-                    System.out.println("\nThe score is...\nComputer: " + playerComputer + " User: " + playerUser+ "\n");
+                    System.out.println("\nThe score is...\nComputer: " + playerComputer + " User: " + playerUser + "\n");
                 }
-                oddScore+=2;
-                evenScore+=2;
+                if (playerComputer != evenScore && playerUser != evenScore){
+                    game = true;
+                    playAgain = true;
+                }
+                else if (playerComputer == evenScore) {
+                    System.out.println("I win!!!");
+                    break;
+                } else if (playerUser == evenScore) {
+                    System.out.println("My systems must be malfunctioning. It seems you have won.");
+                    break;
+                }
+
+                System.out.println("Want to play again?\nEnter \"yes\" or \"no\"");
+                userAnswer = user.nextLine();
+                if (userAnswer.equals("no")) {
+                    System.out.println("GAME OVER!\nGOODBYE!");
+                    playAgain = false;
+                }
+                if (userAnswer.equals("yes")) {
+                    oddScore += 2;
+                    evenScore += 2;
+                    System.out.println("Okay, let us see who will win this time?");
+                    System.out.println("Best " + evenScore + " out of " + oddScore);
+                    game = true;
+                    playAgain = true;
+                }
             }
-            System.out.println("Want to play again?\nEnter \"yes\" or \"no\"");
-            userAnswer = user.nextLine();
-            if (userAnswer.equals("no")){
-                System.out.println("GAME OVER!\nGOODBYE!");
-            }
-            System.out.println("Best " + evenScore + " out of " + oddScore);
         }
     }
 }
-
-
