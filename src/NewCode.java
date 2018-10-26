@@ -130,10 +130,11 @@ public class NewCode {
                 }
                 else if (playerComputer == evenScore) {
                     System.out.println("I win!!!");
-                    break;
-                } else if (playerUser == evenScore) {
+                    game = false;
+                }
+                else if (playerUser == evenScore) {
                     System.out.println("My systems must be malfunctioning. It seems you have won.");
-                    break;
+                    game = false;
                 }
 
                 System.out.println("Want to play again?\nEnter \"yes\" or \"no\"");
