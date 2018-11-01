@@ -31,17 +31,15 @@ public class NewCode {
 
         while (playAgain) {
 
-            while (game) {
-
-                for (int i = 0; i < option.length; i++) {
+             while (playerComputer!=evenScore&&playerUser!=evenScore){
 
                     generatedNumber = (int) (Math.random() * 3);
-                    System.out.println(option[generatedNumber]);
 
                     userAnswer = user.nextLine();
                     if (userAnswer.equals(cowOption) && option[generatedNumber].equals(bombOption)) {
                         System.out.println("Your cow has been blown up. :-p");
-                        System.out.println(" _.-^^---....,,--       \n" +
+                        System.out.println("" +
+                                "   _.-^^---....,,--       \n" +
                                 " _--                  --_  \n" +
                                 "<                        >)\n" +
                                 "|                         | \n" +
@@ -55,12 +53,13 @@ public class NewCode {
                         playerComputer++;
                     } else if (userAnswer.equals(cowOption) && option[generatedNumber].equals(lakeOption)) {
                         System.out.println("Your cow drank my lake! >:-(");
-                        System.out.println(" __n__n__\n" +
+                        System.out.println("" +
+                                "          __n__n__\n" +
                                 "    .------`-\\00/-'\n" +
                                 "   /  ##  ## (oo)\n" +
                                 "  / \\## __   ./\n" +
                                 "     |//YY \\|/\n" +
-                                "snd  |||   |||");
+                                "     |||   |||");
                         playerUser++;
                     }
                     /////
@@ -80,7 +79,8 @@ public class NewCode {
                         playerComputer++;
                     } else if (userAnswer.equals(bombOption) && option[generatedNumber].equals(cowOption)) {
                         System.out.println("You blew up my cow. >:-(");
-                        System.out.println(" _.-^^---....,,--       \n" +
+                        System.out.println("" +
+                                "    _.-^^---....,,--       \n" +
                                 " _--                  --_  \n" +
                                 "<                        >)\n" +
                                 "|                         | \n" +
@@ -96,7 +96,8 @@ public class NewCode {
                     /////
                     else if (userAnswer.equals(lakeOption) && option[generatedNumber].equals(cowOption)) {
                         System.out.println("My cow drank your lake. :-p");
-                        System.out.println(" __n__n__\n" +
+                        System.out.println(" " +
+                                "          __n__n__\n" +
                                 "    .------`-\\00/-'\n" +
                                 "   /  ##  ## (oo)\n" +
                                 "  / \\## __   ./\n" +
@@ -124,11 +125,7 @@ public class NewCode {
                     }
                     System.out.println("\nThe score is...\nComputer: " + playerComputer + " User: " + playerUser + "\n");
                 }
-                if (playerComputer != evenScore && playerUser != evenScore){
-                    game = true;
-                    playAgain = true;
-                }
-                else if (playerComputer == evenScore) {
+                if (playerComputer == evenScore) {
                     System.out.println("I win!!!");
                     game = false;
                 }
@@ -144,8 +141,8 @@ public class NewCode {
                     playAgain = false;
                 }
                 if (userAnswer.equals("yes")) {
-                    oddScore += 2;
-                    evenScore += 2;
+                    oddScore+= 2;
+                    evenScore+= 2;
                     System.out.println("Okay, let us see who will win this time?");
                     System.out.println("Best " + evenScore + " out of " + oddScore);
                     game = true;
@@ -154,4 +151,4 @@ public class NewCode {
             }
         }
     }
-}
+
