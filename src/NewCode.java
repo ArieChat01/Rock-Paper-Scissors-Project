@@ -4,7 +4,7 @@ public class NewCode {
     public static void main(String[] args) {
 
         int generatedNumber;
-        boolean game, playAgain;
+        boolean playAgain;
 
         Scanner user;
         user = new Scanner(System.in);
@@ -21,12 +21,13 @@ public class NewCode {
         bombOption = "bomb";
         lakeOption = "lake";
         String[] option = {cowOption, bombOption, lakeOption};
-        game = true;
         playAgain = true;
 
-        System.out.println("Okay, let's play cow, lake, bomb");
-        System.out.println("Okay, are you ready?");
-        System.out.println("Enter cow, lake or bomb.");
+        System.out.println("Hello and welcome to cow, lake, bomb. This british version of rock papers scissors is fun for\n" +
+                "the whole family. In this rendition, cow drinks lake but is blown up by the bomb. The bomb kills the cow, but\n" +
+                "is extinguished by the lake. Lastly the lake can be drank by the cow, but cannot put out the bomb's fuse.");
+        System.out.println("Are you ready?");
+        System.out.println("Now enter cow, lake or bomb.");
         System.out.println("Best " + evenScore + " out of " + oddScore);
 
         while (playAgain) {
@@ -127,11 +128,9 @@ public class NewCode {
                 }
                 if (playerComputer == evenScore) {
                     System.out.println("I win!!!");
-                    game = false;
                 }
                 else if (playerUser == evenScore) {
                     System.out.println("My systems must be malfunctioning. It seems you have won.");
-                    game = false;
                 }
 
                 System.out.println("Want to play again?\nEnter \"yes\" or \"no\"");
@@ -145,7 +144,6 @@ public class NewCode {
                     evenScore+= 2;
                     System.out.println("Okay, let us see who will win this time?");
                     System.out.println("Best " + evenScore + " out of " + oddScore);
-                    game = true;
                     playAgain = true;
                 }
             }
